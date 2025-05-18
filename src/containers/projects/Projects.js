@@ -121,7 +121,7 @@ export default function Projects() {
         /div> <
         Button text = { "Daha Fazla Proje" }
         className = "project-button"
-        href = "https://github.com/mahendrasaikumargandham?tab=repositories"
+        href = "https://github.com/EfeUls?tab=repositories"
         newTab = { true }
         />
 
