@@ -3,7 +3,7 @@
             "id": "1",
             "name": "Portfolio",
             "createdAt": "2024-01-01",
-            "url": "https://github.com/EfeUls/portfolll",
+            "url": "https://github.com/EfeUls/EfeUlasPortfolio",
             "description": "Kişisel Portfolio Web Sitesi",
             "isFork": false,
             "images": [
@@ -78,7 +78,7 @@
             "id": "4",
             "name": "MadraRoketTakimi_YerIstasyonu",
             "createdAt": "2023-09-01",
-            "url": "https://github.com/EfeUls/MadraRoketTakimi_YerIstasyonu.git",
+            "url": "https://github.com/EfeUls/MadraRoketTakimi_YerIstasyonu",
             "description": "Madra Roket Takımı için geliştirilmiş yer istasyonu yazılımı",
             "isFork": false,
             "languages": [{
@@ -99,7 +99,7 @@
             "id": "5",
             "name": "YerIstasyonu",
             "createdAt": "2023-08-01",
-            "url": "https://github.com/EfeUls/YerIstasyonu.git",
+            "url": "https://github.com/EfeUls/YerIstasyonu",
             "description": "C# Windows Forms ile geliştirilmiş roket yarışması yer istasyonu arayüzü",
             "isFork": false,
             "languages": [{
