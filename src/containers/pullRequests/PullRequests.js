@@ -24,7 +24,7 @@ class PullRequests extends Component {
             div className = "chart" >
             <
             Fade bottom duration = { 3000 }
-            distance = "30px" > { /* <GitHubCalendar username="mahendrasaikumargandham" fullYear={false} /> */ } <
+            distance = "30px" > {  } <
             /Fade> < /
             div >
 
