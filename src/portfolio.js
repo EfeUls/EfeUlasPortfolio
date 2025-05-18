@@ -17,7 +17,7 @@ const greeting = {
     logo_name: "Efe ULAS",
     nickname: "Bilgisayar Mühendisi",
     subTitle: "Merhaba! Ben Efe Ulas. Gömülü sistemler, elektronik donanım ve mühendislik temelli projeler geliştirmeye tutkuyla bağlı bir geliştiriciyim. Yazılımın sadece ekran başında çalışan bir şey değil, gerçek dünya ile etkileşim kurabilen bir sistem haline geldiği noktada asıl gücünü gösterdiğine inanıyorum. Küçük yaşlardan itibaren teknolojiye duyduğum merak, zamanla beni Arduino ve STM32 gibi platformlarla çalışan, veri toplayan, işleyen ve sonuçlar üreten sistemler geliştirmeye yönlendirdi. Bugün, hem yazılım hem de donanım tarafında deneyim sahibi olarak, uçtan uca çalışan akıllı sistemler tasarlıyor ve uygulamaya geçiriyorum.",
-    resumeLink: "https://drive.google.com/file/d/1TM4QIZmyJmX-4LaxSdO2TnPpVTq50d9S/view?usp=drive_link",
+    resumeLink: "https://drive.google.com/file/d/1TM4QIZmyJmX-4LaxSdO2TnPpVTq50d9S/view?usp=sharing",
 };
 
 const socialMediaLinks = [{
