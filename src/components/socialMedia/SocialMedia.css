@@ -1,31 +1,36 @@
 .social-media-div {
-  font-size: 2em;
+    font-size: 2em;
+    display: flex;
+    gap: 15px;
 }
 
 .icon-button i {
-  color: white;
+    color: white;
 }
+
 .icon-button {
-  margin-bottom: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .icon-button i {
-  border-radius: 2.6rem;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1.3rem;
-  height: 2.6rem;
-  line-height: 2.6rem;
-  margin: 0 5px;
-  position: relative;
-  text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 2.6rem;
-  margin-bottom: 10px;
+    border-radius: 2.6rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3rem;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 2.6rem;
 }
+
 
 /* .facebook i {
   background-color: #3b5998;
@@ -55,16 +60,22 @@
   background-color: #E4405F;
 } */
 
+
 /*Hover Transition*/
+
+
 /* .twitter i:hover, .google i:hover, .gitlab i:hover,
 .github i:hover ,.linkedin i:hover ,.facebook i:hover, .instagram i:hover{
   background-color: black;
   transition: 0.3s ease-in;
 } */
 
+
 /* Media Query */
+
 @media (max-width: 768px) {
-  .social-media-div {
-    text-align: center;
-  }
+    .social-media-div {
+        text-align: center;
+        justify-content: center;
+    }
 }

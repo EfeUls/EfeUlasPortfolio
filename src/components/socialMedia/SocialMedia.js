@@ -27,7 +27,7 @@ export default function socialMedia(props) {
                     IconWrapper {...media } {...props } >
                     <
                     i className = { `fab ${media.fontAwesomeIcon}` } > < /i> < /
-                    IconWrapper > { /* <span></span> */ } <
+                    IconWrapper > <
                     /a>
                 );
             })

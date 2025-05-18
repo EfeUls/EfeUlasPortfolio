@@ -4,7 +4,7 @@ const settings = {
 
 const seo = {
     title: "Efe ULAS/Portfolyo",
-    description: "Merhaba! Ben Efe Ulaş. Gömülü sistemler, elektronik donanım ve mühendislik temelli projeler geliştirmeye tutkuyla bağlı bir geliştiriciyim. Yazılımın sadece ekran başında çalışan bir şey değil, gerçek dünya ile etkileşim kurabilen bir sistem haline geldiği noktada asıl gücünü gösterdiğine inanıyorum.Küçük yaşlardan itibaren teknolojiye duyduğum merak, zamanla beni Arduino ve STM32 gibi platformlarla çalışan, veri toplayan, işleyen ve sonuçlar üreten sistemler geliştirmeye yönlendirdi. Bugün, hem yazılım hem de donanım tarafında deneyim sahibi olarak, uçtan uca çalışan akıllı sistemler tasarlıyor ve uygulamaya geçiriyorum.",
+    description: "Merhaba! Ben Efe Ulas. Gömülü sistemler, elektronik donanım ve mühendislik temelli projeler geliştirmeye tutkuyla bağlı bir geliştiriciyim. Yazılımın sadece ekran başında çalışan bir şey değil, gerçek dünya ile etkileşim kurabilen bir sistem haline geldiği noktada asıl gücünü gösterdiğine inanıyorum.Küçük yaşlardan itibaren teknolojiye duyduğum merak, zamanla beni Arduino ve STM32 gibi platformlarla çalışan, veri toplayan, işleyen ve sonuçlar üreten sistemler geliştirmeye yönlendirdi. Bugün, hem yazılım hem de donanım tarafında deneyim sahibi olarak, uçtan uca çalışan akıllı sistemler tasarlıyor ve uygulamaya geçiriyorum.",
     og: {
         title: "Efe ULAS Portfolyosu",
         type: "website",
@@ -15,8 +15,8 @@ const seo = {
 const greeting = {
     title: "Efe ULAS",
     logo_name: "Efe ULAS",
-    nickname: "Bilgisayar Mühendisi Adayı",
-    subTitle: "Merhaba! Ben Efe Ulaş. Gömülü sistemler, elektronik donanım ve mühendislik temelli projeler geliştirmeye tutkuyla bağlı bir geliştiriciyim. Yazılımın sadece ekran başında çalışan bir şey değil, gerçek dünya ile etkileşim kurabilen bir sistem haline geldiği noktada asıl gücünü gösterdiğine inanıyorum.Küçük yaşlardan itibaren teknolojiye duyduğum merak, zamanla beni Arduino ve STM32 gibi platformlarla çalışan, veri toplayan, işleyen ve sonuçlar üreten sistemler geliştirmeye yönlendirdi. Bugün, hem yazılım hem de donanım tarafında deneyim sahibi olarak, uçtan uca çalışan akıllı sistemler tasarlıyor ve uygulamaya geçiriyorum.",
+    nickname: "Bilgisayar Mühendisi",
+    subTitle: "Merhaba! Ben Efe Ulas. Gömülü sistemler, elektronik donanım ve mühendislik temelli projeler geliştirmeye tutkuyla bağlı bir geliştiriciyim. Yazılımın sadece ekran başında çalışan bir şey değil, gerçek dünya ile etkileşim kurabilen bir sistem haline geldiği noktada asıl gücünü gösterdiğine inanıyorum. Küçük yaşlardan itibaren teknolojiye duyduğum merak, zamanla beni Arduino ve STM32 gibi platformlarla çalışan, veri toplayan, işleyen ve sonuçlar üreten sistemler geliştirmeye yönlendirdi. Bugün, hem yazılım hem de donanım tarafında deneyim sahibi olarak, uçtan uca çalışan akıllı sistemler tasarlıyor ve uygulamaya geçiriyorum.",
     resumeLink: "https://drive.google.com/file/d/1TM4QIZmyJmX-4LaxSdO2TnPpVTq50d9S/view?usp=drive_link",
 };
 
@@ -24,44 +24,44 @@ const socialMediaLinks = [{
         name: "Github",
         link: "https://github.com/EfeUls",
         fontAwesomeIcon: "fa-github",
-        backgroundColor: "#181717",
+        backgroundColor: "#181717"
     },
     {
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/efe-ula%C5%9F-20a505304/",
         fontAwesomeIcon: "fa-linkedin-in",
-        backgroundColor: "#0077B5",
+        backgroundColor: "#0077B5"
     },
     {
         name: "YouTube",
         link: "",
         fontAwesomeIcon: "fa-youtube",
-        backgroundColor: "#FF0000",
+        backgroundColor: "#FF0000"
     },
     {
         name: "Gmail",
         link: "mailto:e.u.las561@gmail.com",
         fontAwesomeIcon: "fa-google",
-        backgroundColor: "#D14836",
+        backgroundColor: "#D14836"
     },
     {
         name: "Twitter",
         link: "",
         fontAwesomeIcon: "fa-twitter",
-        backgroundColor: "#1DA1F2",
+        backgroundColor: "#1DA1F2"
     },
     {
         name: "Facebook",
         link: "",
         fontAwesomeIcon: "fa-facebook-f",
-        backgroundColor: "#1877F2",
+        backgroundColor: "#1877F2"
     },
     {
         name: "Instagram",
         link: "https://www.instagram.com/efee_uls/",
         fontAwesomeIcon: "fa-instagram",
-        backgroundColor: "#E4405F",
-    },
+        backgroundColor: "#E4405F"
+    }
 ];
 
 const skills = {
