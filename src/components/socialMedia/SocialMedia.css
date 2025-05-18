@@ -2,6 +2,9 @@
     font-size: 2em;
     display: flex;
     gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
 }
 
 .icon-button i {
