@@ -205,6 +205,13 @@ const skills = {
                         color: "#3776AB",
                     },
                 },
+                {
+                    skillName: "Proteus",
+                    fontAwesomeClassname: "simple-icons:proteus",
+                    style: {
+                        color: "#00A0E3",
+                    },
+                },
             ],
         },
         {
@@ -244,7 +251,7 @@ const skills = {
                     },
                 },
                 {
-                    skillName: "Fusion360",
+                    skillName: "Fusion 360",
                     fontAwesomeClassname: "simple-icons:autodesk",
                     style: {
                         color: "#0696D7",
@@ -255,6 +262,13 @@ const skills = {
                     fontAwesomeClassname: "simple-icons:python",
                     style: {
                         color: "#3776AB",
+                    },
+                },
+                {
+                    skillName: "Proteus",
+                    fontAwesomeClassname: "simple-icons:proteus",
+                    style: {
+                        color: "#00A0E3",
                     },
                 },
             ],
@@ -277,6 +291,13 @@ const skills = {
                     fontAwesomeClassname: "logos:linux-tux",
                     style: {
                         color: "",
+                    },
+                },
+                {
+                    skillName: "VirtualBox",
+                    fontAwesomeClassname: "simple-icons:virtualbox",
+                    style: {
+                        color: "#183A61",
                     },
                 },
             ],
