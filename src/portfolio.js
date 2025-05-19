@@ -164,6 +164,13 @@ const skills = {
                     },
                 },
                 {
+                    skillName: "ESP",
+                    fontAwesomeClassname: "simple-icons:espressif",
+                    style: {
+                        color: "#000000",
+                    },
+                },
+                {
                     skillName: "STM32",
                     fontAwesomeClassname: "simple-icons:stmicroelectronics",
                     style: {
