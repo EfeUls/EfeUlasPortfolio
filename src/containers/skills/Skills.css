@@ -29,6 +29,19 @@
   margin-top: 100px;
 }
 
+.skills-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.skills-image-div > .skill-illustration {
+  display: block;
+  width: min(100%, 440px);
+  margin: 0;
+}
+
 .skills-heading {
   font-size: 56px;
   font-weight: 400;

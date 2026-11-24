@@ -18,7 +18,7 @@ const onMouseOut = (event) => {
 class Header extends Component {
     render() {
         const theme = this.props.theme;
-        const link = settings.isSplash ? "/splash" : "home";
+        const link = settings.isSplash ? "/splash" : "/home";
         return ( <
             Fade top duration = { 1000 }
             distance = "20px" >
@@ -138,6 +138,7 @@ class Header extends Component {
             li >
             <
             a href = { greeting.resumeLink }
+            download = "Efe-Ulas-CV.pdf"
             target = "_blank"
             rel = "noopener noreferrer"
             style = {

@@ -22,6 +22,14 @@
   height: 100px;
 }
 
+.cert-issuer {
+  display: grid;
+  place-items: center;
+  min-height: 106px;
+  color: #073e55;
+  font: 700 2.5rem/1 "Google Sans Bold", system-ui, sans-serif;
+}
+
 .cert-body {
   margin: 0px;
 }

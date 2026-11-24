@@ -263,3 +263,8 @@
         width: 100%;
     }
 }
+.contact-form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    text-align: left;
+}

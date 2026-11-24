@@ -3,3 +3,5 @@
 
 
 .vercel
+.DS_Store
+/src/shared/opensource/

@@ -119,4 +119,19 @@ export const orangeTheme = {
   headerColor: "#FF6B3577",
 };
 
-export const chosenTheme = blueTheme;
+export const chosenTheme = {
+  body: "#0b1010",
+  text: "#eff6f0",
+  secondaryText: "#aebfb6",
+  highlight: "#172723",
+  dark: "#111e1b",
+  imageHighlight: "#a9ee82",
+  compImgHighlight: "#d1e8dc",
+  jacketColor: "#2c5e48",
+  headerColor: "#1b3029",
+  surface: "#121b1a",
+  border: "#34463e",
+  accent: "#b8f68e",
+  illustrationInk: "#213b31",
+  illustrationLight: "#b5d6c4",
+};

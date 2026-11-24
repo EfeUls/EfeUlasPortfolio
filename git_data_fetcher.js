@@ -4,7 +4,31 @@ const openSource = {
 };
 
 const fetch = require("node-fetch");
-var fs = require("fs");
+const fs = require("fs");
+const path = require("path");
+
+if (!openSource.githubConvertedToken) {
+    console.error("Set GITHUB_TOKEN before fetching GitHub data.");
+    process.exit(1);
+}
+
+const outputDir = path.join(__dirname, "src", "shared", "opensource");
+fs.mkdirSync(outputDir, { recursive: true });
+
+function readResponse(response) {
+    if (!response.ok) throw new Error("GitHub returned HTTP " + response.status);
+    return response.json().then((result) => {
+        if (result.errors || !result.data || !result.data.user) {
+            throw new Error("GitHub returned invalid or incomplete GraphQL data.");
+        }
+        return result;
+    });
+}
+
+function reportError(error) {
+    console.error(error.message);
+    process.exitCode = 1;
+}
 
 const query_pr = {
     query: `
@@ -122,125 +146,12 @@ const query_pinned_projects = {
 };
 
 const baseUrl = "https://api.github.com/graphql";
-
 const headers = {
     "Content-Type": "application/json",
-    Authorization: "bearer " + openSource.githubConvertedToken,
+    Authorization: "Bearer " + openSource.githubConvertedToken,
 };
 
-fetch(baseUrl, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(query_pr),
-    })
-    .then((response) => response.text())
-    .then((txt) => {
-        const data = JSON.parse(txt);
-        var cropped = { data: [] };
-        cropped["data"] = data["data"]["user"]["pullRequests"]["nodes"];
-
-        var open = 0;
-        var closed = 0;
-        var merged = 0;
-        for (var i = 0; i < cropped["data"].length; i++) {
-            if (cropped["data"][i]["state"] === "OPEN") open++;
-            else if (cropped["data"][i]["state"] === "MERGED") merged++;
-            else closed++;
-        }
-
-        cropped["open"] = open;
-        cropped["closed"] = closed;
-        cropped["merged"] = merged;
-        cropped["totalCount"] = cropped["data"].length;
-
-        console.log("Fetching the Pull Request Data.\n");
-        fs.writeFile(
-            "./src/shared/opensource/pull_requests.json",
-            JSON.stringify(cropped),
-            function(err) {
-                if (err) {
-                    console.log(err);
-                }
-            }
-        );
-    })
-    .catch((error) => console.log(JSON.stringify(error)));
-
-fetch(baseUrl, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(query_issue),
-    })
-    .then((response) => response.text())
-    .then((txt) => {
-        const data = JSON.parse(txt);
-        var cropped = { data: [] };
-        cropped["data"] = data["data"]["user"]["issues"]["nodes"];
-
-        var open = 0;
-        var closed = 0;
-        for (var i = 0; i < cropped["data"].length; i++) {
-            if (cropped["data"][i]["closed"] === false) open++;
-            else closed++;
-        }
-
-        cropped["open"] = open;
-        cropped["closed"] = closed;
-        cropped["totalCount"] = cropped["data"].length;
-
-        console.log("Fetching the Issues Data.\n");
-        fs.writeFile(
-            "./src/shared/opensource/issues.json",
-            JSON.stringify(cropped),
-            function(err) {
-                if (err) {
-                    console.log(err);
-                }
-            }
-        );
-    })
-    .catch((error) => console.log(JSON.stringify(error)));
-
-fetch(baseUrl, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(query_org),
-    })
-    .then((response) => response.text())
-    .then((txt) => {
-        const data = JSON.parse(txt);
-        const orgs = data["data"]["user"]["repositoriesContributedTo"]["nodes"];
-        var newOrgs = { data: [] };
-        for (var i = 0; i < orgs.length; i++) {
-            var obj = orgs[i]["owner"];
-            if (obj["__typename"] === "Organization") {
-                var flag = 0;
-                for (var j = 0; j < newOrgs["data"].length; j++) {
-                    if (JSON.stringify(obj) === JSON.stringify(newOrgs["data"][j])) {
-                        flag = 1;
-                        break;
-                    }
-                }
-                if (flag === 0) {
-                    newOrgs["data"].push(obj);
-                }
-            }
-        }
-
-        console.log("Fetching the Contributed Organization Data.\n");
-        fs.writeFile(
-            "./src/shared/opensource/organizations.json",
-            JSON.stringify(newOrgs),
-            function(err) {
-                if (err) {
-                    console.log(err);
-                }
-            }
-        );
-    })
-    .catch((error) => console.log(JSON.stringify(error)));
-
-const languages_icons = {
+const languageIcons = {
     Python: "logos-python",
     "Jupyter Notebook": "logos-jupyter",
     HTML: "logos-html-5",
@@ -248,50 +159,59 @@ const languages_icons = {
     JavaScript: "logos-javascript",
     "C#": "logos-c-sharp",
     Java: "logos-java",
-    Qt: "logos:qt"
+    Qt: "logos:qt",
 };
 
-fetch(baseUrl, {
+async function writeDataset(filename, query, select) {
+    const response = await fetch(baseUrl, {
         method: "POST",
-        headers: headers,
-        body: JSON.stringify(query_pinned_projects),
-    })
-    .then((response) => response.text())
-    .then((txt) => {
-        const data = JSON.parse(txt);
-        // console.log(txt);
-        const projects = data["data"]["user"]["pinnedItems"]["nodes"];
-        var newProjects = { data: [] };
-        for (var i = 0; i < projects.length; i++) {
-            var obj = projects[i];
-            var langobjs = obj["languages"]["nodes"];
-            var newLangobjs = [];
-            for (var j = 0; j < langobjs.length; j++) {
-                if (langobjs[j]["name"] in languages_icons) {
-                    newLangobjs.push({
-                        name: langobjs[j]["name"],
-                        iconifyClass: languages_icons[langobjs[j]["name"]],
-                    });
-                }
-            }
-            obj["languages"] = newLangobjs;
-            newProjects["data"].push(obj);
-        }
+        headers,
+        body: JSON.stringify(query),
+    });
+    const result = await readResponse(response);
+    const dataset = select(result.data.user);
 
-        console.log("Fetching the Pinned Projects Data.\n");
-        fs.writeFile(
-            "./src/shared/opensource/projects.json",
-            JSON.stringify(newProjects),
-            function(err) {
-                if (err) {
-                    console.log(
-                        "Error occured in pinned projects 1",
-                        JSON.stringify(err)
-                    );
-                }
-            }
-        );
-    })
-    .catch((error) =>
-        console.log("Error occured in pinned projects 2", JSON.stringify(error))
+    await fs.promises.writeFile(
+        path.join(outputDir, filename),
+        JSON.stringify(dataset, null, 2) + "\n",
+        "utf8"
     );
+    console.log("Updated " + filename);
+}
+
+async function main() {
+    await Promise.all([
+        writeDataset("pull_requests.json", query_pr, ({ pullRequests }) => {
+            const data = pullRequests.nodes;
+            return {
+                data,
+                open: data.filter(({ state }) => state === "OPEN").length,
+                closed: data.filter(({ state }) => state === "CLOSED").length,
+                merged: data.filter(({ state }) => state === "MERGED").length,
+                totalCount: data.length,
+            };
+        }),
+        writeDataset("issues.json", query_issue, ({ issues }) => {
+            const data = issues.nodes;
+            const closed = data.filter((issue) => issue.closed).length;
+            return { data, open: data.length - closed, closed, totalCount: data.length };
+        }),
+        writeDataset("organizations.json", query_org, ({ repositoriesContributedTo }) => {
+            const organizations = new Map();
+            for (const { owner } of repositoriesContributedTo.nodes) {
+                if (owner.__typename === "Organization") organizations.set(owner.login, owner);
+            }
+            return { data: Array.from(organizations.values()) };
+        }),
+        writeDataset("projects.json", query_pinned_projects, ({ pinnedItems }) => ({
+            data: pinnedItems.nodes.map((project) => ({
+                ...project,
+                languages: project.languages.nodes
+                    .filter(({ name }) => Object.prototype.hasOwnProperty.call(languageIcons, name))
+                    .map(({ name }) => ({ name, iconifyClass: languageIcons[name] })),
+            })),
+        })),
+    ]);
+}
+
+main().catch(reportError);

@@ -27,12 +27,16 @@ class SoftwareSkill extends React.Component {
                   }
                 >
                   <li className="software-skill-inline" name={logo.skillName}>
-                    <span
-                      className="iconify"
-                      data-icon={logo.fontAwesomeClassname}
-                      style={logo.style}
-                      data-inline="false"
-                    ></span>
+                    {logo.iconSrc ? (
+                      <img className="software-skill-image" src={logo.iconSrc} alt={logo.skillName} />
+                    ) : (
+                      <span
+                        className="iconify"
+                        data-icon={logo.fontAwesomeClassname}
+                        style={logo.style}
+                        data-inline="false"
+                      />
+                    )}
                   </li>
                 </OverlayTrigger>
               );

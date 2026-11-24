@@ -1,0 +1,531 @@
+.engineering-theme {
+  --gutter: clamp(16px, 5vw, 112px);
+  --shell: calc(100% - var(--gutter) - var(--gutter));
+  --mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  width: 100%;
+  min-height: 100vh;
+  color-scheme: dark;
+  background:
+    radial-gradient(ellipse min(55vw, 80rem) 52rem at 80% 16rem, #223c2d, transparent),
+    var(--canvas);
+}
+
+.engineering-theme :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.engineering-theme h1,
+.engineering-theme h2,
+.engineering-theme h3 {
+  color: var(--ink);
+}
+
+.engineering-theme .header {
+  width: var(--shell);
+  max-width: none;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.engineering-theme .header .logo {
+  display: inline-flex;
+  align-items: center;
+  font: 700 1.12rem/1.2 var(--mono);
+  letter-spacing: -.045em;
+  margin: 0;
+}
+
+.engineering-theme .header .logo span:not(.logo-name) {
+  color: var(--accent) !important;
+}
+
+.engineering-theme .header .logo-name {
+  font-family: inherit;
+  padding: 0 .38em;
+}
+
+.engineering-theme .header .menu {
+  background: transparent !important;
+  font-family: "Google Sans Medium", system-ui, sans-serif;
+}
+
+.engineering-theme .header li a {
+  padding: 11px 15px;
+  border-radius: 8px;
+  font-size: .95rem;
+  transition: background-color .2s, color .2s;
+}
+
+.engineering-theme .header li a.active {
+  color: var(--accent) !important;
+}
+
+.engineering-theme .header li:last-child a {
+  color: var(--accent) !important;
+  border: 1px solid var(--line);
+}
+
+.engineering-theme .header .navicon,
+.engineering-theme .header .navicon::before,
+.engineering-theme .header .navicon::after {
+  background: var(--ink);
+}
+
+.engineering-theme .greet-main {
+  width: var(--shell);
+  padding: 0;
+  margin: clamp(38px, 7vw, 100px) auto 0;
+}
+
+.engineering-theme .greeting-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.engineering-theme .greeting-main > * {
+  min-width: 0;
+  margin: 0;
+}
+
+.engineering-theme .greeting-text-div,
+.engineering-theme .skills-text-div {
+  text-align: left;
+}
+
+.engineering-theme .greeting-text {
+  font-size: clamp(4rem, 9vw, 8.25rem);
+  font-weight: 700;
+  line-height: .91;
+  letter-spacing: -.07em;
+  margin: 0 0 20px;
+}
+
+.engineering-theme .greeting-nickname {
+  color: var(--accent) !important;
+  font: 500 clamp(.95rem, 2vw, 1.16rem)/1.45 var(--mono);
+  margin: 0 0 22px;
+}
+
+.engineering-theme .greeting-text-p {
+  max-width: 66ch;
+  margin: 0;
+  font: 400 clamp(1rem, 1.5vw, 1.12rem)/1.7 "Google Sans Regular", system-ui, sans-serif;
+}
+
+.engineering-theme .greeting-image-div {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.16;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background:
+    linear-gradient(#a9ee8210 1px, transparent 1px),
+    linear-gradient(90deg, #a9ee8210 1px, transparent 1px),
+    radial-gradient(ellipse at center, #335142, #101a17 75%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+}
+
+.engineering-theme .greeting-image-div::before,
+.engineering-theme .greeting-image-div::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.engineering-theme .greeting-image-div::before {
+  width: 76%;
+  aspect-ratio: 1;
+  border: 1px dashed #b8f68550;
+  border-radius: 50%;
+  box-shadow: 0 0 0 23px #b8f6850a, 0 0 0 45px #b8f68508;
+  animation: orbit-enter 4.2s ease-out both;
+  z-index: -1;
+}
+
+.engineering-theme .greeting-image-div::after {
+  inset: 0;
+  background: linear-gradient(transparent 42%, #b8f6851a 50%, #b8f68545 50.2%, transparent 54%);
+  transform: translateY(-100%);
+  animation: panel-scan 3.2s .25s ease-in-out both;
+}
+
+.engineering-theme .greeting-image-div > svg {
+  display: block;
+  width: 75%;
+  max-height: 88%;
+  filter: drop-shadow(0 15px 20px #0008);
+  transition: transform .45s ease;
+}
+
+@media (hover: hover) {
+  .engineering-theme .greeting-image-div:hover > svg {
+    transform: translateY(-7px) scale(1.025);
+  }
+}
+
+@keyframes panel-scan {
+  to { transform: translateY(100%); }
+}
+
+@keyframes orbit-enter {
+  from { opacity: 0; transform: scale(.9) rotate(-34deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.engineering-theme .social-media-div {
+  gap: 9px;
+  margin: 24px 0 0;
+}
+
+.engineering-theme .greeting-text-div .social-media-div {
+  justify-content: flex-start;
+}
+
+.engineering-theme .icon-button {
+  display: inline-flex;
+  border-radius: 10px;
+}
+
+.engineering-theme .icon-button i {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  width: 44px;
+  height: 44px;
+  line-height: 42px;
+  font-size: 1rem;
+  transition: background .2s, color .2s, transform .2s;
+}
+
+.engineering-theme .icon-button:hover i,
+.engineering-theme .icon-button:focus-visible i {
+  background: var(--accent);
+  color: var(--canvas);
+  transform: translateY(-3px);
+}
+
+.engineering-theme #skills {
+  width: var(--shell);
+  padding: 0;
+  margin: clamp(64px, 9vw, 126px) auto 0;
+  border-top: 1px solid var(--line);
+}
+
+.engineering-theme .skills-header {
+  margin: 34px 0 24px;
+  text-align: left;
+  font-size: clamp(2.35rem, 5vw, 4.35rem);
+  line-height: 1;
+  letter-spacing: -.07em;
+  font-family: "Google Sans Bold", system-ui, sans-serif;
+}
+
+.engineering-theme .skills-main-div {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
+  gap: clamp(18px, 4vw, 56px);
+  padding: clamp(18px, 3.2vw, 36px);
+  margin-bottom: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  transition: border-color .25s, background .25s;
+}
+
+.engineering-theme .skills-main-div:hover {
+  background: #172321;
+  border-color: #789c7b;
+}
+
+.engineering-theme .skills-main-div > * {
+  min-width: 0;
+  margin: 0;
+}
+
+.engineering-theme .skills-image-div {
+  border-radius: 13px;
+  background: radial-gradient(#94ba9833 1px, transparent 1px) center / 17px 17px, #101916;
+}
+
+.engineering-theme .skill-illustration {
+  width: 90%;
+  transition: transform .35s ease;
+}
+
+.engineering-theme .skills-main-div:hover .skill-illustration {
+  transform: translateY(-4px);
+}
+
+.engineering-theme .skills-heading {
+  margin: 0 0 10px;
+  font: 700 clamp(1.5rem, 3vw, 2.55rem)/1.12 "Google Sans Bold", system-ui, sans-serif;
+  letter-spacing: -.045em;
+}
+
+.engineering-theme .skills-text {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: .55rem 0 0;
+}
+
+.engineering-theme .dev-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px 12px;
+  flex-wrap: wrap;
+}
+
+.engineering-theme .software-skill-inline {
+  filter: drop-shadow(0 0 4px #eff6f045);
+}
+
+.engineering-theme .education-main,
+.engineering-theme .experience-main,
+.engineering-theme .contact-main,
+.engineering-theme .projects-main {
+  width: 100%;
+}
+
+.engineering-theme .basic-education,
+.engineering-theme .basic-experience,
+.engineering-theme .basic-contact,
+.engineering-theme .basic-projects {
+  width: var(--shell);
+  margin: clamp(26px, 5vw, 70px) auto 0;
+}
+
+.engineering-theme .heading-text,
+.engineering-theme .experience-heading-text,
+.engineering-theme .contact-heading-text,
+.engineering-theme .projects-heading-text,
+.engineering-theme .section-title {
+  margin-block: .35em;
+  font-family: "Google Sans Bold", system-ui, sans-serif;
+  font-size: clamp(2.7rem, 6.4vw, 5.65rem);
+  letter-spacing: -.07em;
+  line-height: 1.03;
+}
+
+.engineering-theme .heading-img-div > svg,
+.engineering-theme .experience-heading-img-div > svg,
+.engineering-theme .projects-heading-img-div > svg,
+.engineering-theme .contact-heading-img-div > img,
+.engineering-theme .contact-heading-img-div > svg {
+  max-width: 100%;
+  max-height: 290px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 24px #0006);
+}
+
+.engineering-theme .repo-cards-div-main {
+  width: var(--shell);
+  max-width: none;
+  padding: 0;
+  margin-top: 35px;
+}
+
+.engineering-theme .repo-card-div,
+.engineering-theme .card-body,
+.engineering-theme .cert-card,
+.engineering-theme .contact-form-div,
+.engineering-theme .additional-images-section {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface) !important;
+  box-shadow: 0 15px 35px #0002;
+}
+
+.engineering-theme .repo-card-div {
+  min-height: 226px;
+  padding: 24px;
+  transition: transform .24s, border-color .24s;
+}
+
+.engineering-theme .repo-card-div:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.engineering-theme .repo-name {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.engineering-theme .repo-details {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.engineering-theme .octicon {
+  fill: var(--accent);
+}
+
+.engineering-theme .additional-images-section {
+  width: var(--shell);
+  margin: 64px auto 0;
+}
+
+.engineering-theme .slider-container {
+  width: 90%;
+  max-width: none;
+}
+
+.engineering-theme .additional-image-item {
+  height: clamp(180px, 48vw, 72vh);
+}
+
+.engineering-theme .additional-images-section .section-title {
+  font-size: clamp(1.85rem, 4vw, 3.35rem);
+  margin: 0 0 .9em;
+}
+
+.engineering-theme .section-title::after {
+  background: var(--accent);
+}
+
+.engineering-theme .additional-images-slider .slick-next,
+.engineering-theme .additional-images-slider .slick-prev {
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.engineering-theme .additional-images-slider .slick-dots li button::before {
+  color: var(--muted);
+}
+
+.engineering-theme .additional-images-slider .slick-dots li.slick-active button::before {
+  color: var(--accent);
+}
+
+.engineering-theme .main-button,
+.engineering-theme .submit-btn,
+.engineering-theme #topButton {
+  background: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  color: var(--canvas) !important;
+  border-radius: 9px;
+  letter-spacing: 0;
+  transition: box-shadow .24s, transform .24s;
+}
+
+.engineering-theme .main-button:hover,
+.engineering-theme .submit-btn:hover,
+.engineering-theme #topButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px #a9ee8233;
+}
+
+.engineering-theme .contact-form-div > p a,
+.engineering-theme .address-heading-text-div a:not(.main-button) {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.engineering-theme .contact-form input:focus,
+.engineering-theme .contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  opacity: 1;
+}
+
+.engineering-theme .contact-form-div .form-heading {
+  margin-top: 0;
+}
+
+.engineering-theme .card-img {
+  background: #dce7dc;
+}
+
+.engineering-theme .cert-card {
+  overflow: hidden;
+}
+
+.engineering-theme .content-details .content-title {
+  color: var(--ink) !important;
+}
+
+.engineering-theme .footer-div {
+  width: var(--shell);
+  margin: 64px auto 0;
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--line);
+}
+
+.engineering-theme .footer-text {
+  margin: 0;
+  font: .9rem/1.4 var(--mono);
+}
+
+@media (max-width: 767px) {
+  .engineering-theme .header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .engineering-theme .header .logo {
+    margin-top: 9px;
+  }
+
+  .engineering-theme .header .menu-icon {
+    padding: 17px 10px;
+  }
+
+  .engineering-theme .greeting-main,
+  .engineering-theme .skills-main-div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .engineering-theme .greeting-text {
+    font-size: clamp(3rem, 13vw, 5.3rem);
+  }
+
+  .engineering-theme .greeting-text,
+  .engineering-theme .greeting-nickname,
+  .engineering-theme .greeting-text-p,
+  .engineering-theme .skills-heading {
+    text-align: left;
+  }
+
+  .engineering-theme .greeting-image-div {
+    justify-self: stretch;
+    aspect-ratio: 1.38;
+  }
+
+  .engineering-theme .skills-image-div {
+    order: 0;
+  }
+
+  .engineering-theme .skill-illustration {
+    max-height: 165px;
+  }
+
+  .engineering-theme .additional-images-slider .slick-prev { left: -12px; }
+  .engineering-theme .additional-images-slider .slick-next { right: -12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    scroll-behavior: auto;
+  }
+
+  .engineering-theme *,
+  .engineering-theme *::before,
+  .engineering-theme *::after {
+    animation-duration: 0ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .engineering-theme .greeting-image-div::after {
+    display: none;
+  }
+}

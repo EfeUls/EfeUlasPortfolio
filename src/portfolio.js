@@ -1,3 +1,5 @@
+import matlabLogo from "./assests/images/matlab-original.svg";
+
 const settings = {
     isSplash: false,
 };
@@ -8,7 +10,7 @@ const seo = {
     og: {
         title: "Efe ULAS Portfolyosu",
         type: "website",
-        url: "",
+        url: "https://efe-ulas-portfolio.vercel.app/",
     },
 };
 
@@ -17,8 +19,10 @@ const greeting = {
     logo_name: "Efe ULAS",
     nickname: "Bilgisayar Mühendisi",
     subTitle: "Merhaba! Ben Efe Ulas. Gömülü sistemler, elektronik donanım ve mühendislik temelli projeler geliştirmeye tutkuyla bağlı bir geliştiriciyim. Yazılımın sadece ekran başında çalışan bir şey değil, gerçek dünya ile etkileşim kurabilen bir sistem haline geldiği noktada asıl gücünü gösterdiğine inanıyorum. Küçük yaşlardan itibaren teknolojiye duyduğum merak, zamanla beni Arduino ve STM32 gibi platformlarla çalışan, veri toplayan, işleyen ve sonuçlar üreten sistemler geliştirmeye yönlendirdi. Bugün, hem yazılım hem de donanım tarafında deneyim sahibi olarak, uçtan uca çalışan akıllı sistemler tasarlıyor ve uygulamaya geçiriyorum.",
-    resumeLink: "https://drive.google.com/file/d/1TM4QIZmyJmX-4LaxSdO2TnPpVTq50d9S/view?usp=sharing",
+    resumeLink: process.env.PUBLIC_URL + "/Efe-Ulas-CV.pdf",
 };
+
+const contactEmail = "e.u.las561@gmail.com";
 
 const socialMediaLinks = [{
         name: "Github",
@@ -33,28 +37,10 @@ const socialMediaLinks = [{
         backgroundColor: "#0077B5"
     },
     {
-        name: "YouTube",
-        link: "",
-        fontAwesomeIcon: "fa-youtube",
-        backgroundColor: "#FF0000"
-    },
-    {
         name: "Gmail",
-        link: "mailto:e.u.las561@gmail.com",
+        link: "mailto:" + contactEmail,
         fontAwesomeIcon: "fa-google",
         backgroundColor: "#D14836"
-    },
-    {
-        name: "Twitter",
-        link: "",
-        fontAwesomeIcon: "fa-twitter",
-        backgroundColor: "#1DA1F2"
-    },
-    {
-        name: "Facebook",
-        link: "",
-        fontAwesomeIcon: "fa-facebook-f",
-        backgroundColor: "#1877F2"
     },
     {
         name: "Instagram",
@@ -67,7 +53,7 @@ const socialMediaLinks = [{
 const skills = {
     data: [{
             title: "Frontend Geliştirme",
-            fileName: "FullStackImg",
+            illustration: "Frontend",
             skills: [
                 "⚡ React framework kullanarak duyarlı web sitesi ön yüzü oluşturma"
             ],
@@ -111,7 +97,7 @@ const skills = {
         },
         {
             title: "Masaüstü Uygulama Geliştirme",
-            fileName: "DesktopImg",
+            illustration: "Desktop",
             skills: [
                 "⚡ C# ve .NET Framework kullanarak Windows masaüstü uygulamaları geliştirme",
                 "⚡ Electron.js ile platform bağımsız masaüstü uygulamaları oluşturma",
@@ -149,7 +135,7 @@ const skills = {
         },
         {
             title: "Gömülü Sistemler",
-            fileName: "EmbeddedImg",
+            illustration: "Embedded",
             skills: [
                 "⚡ Arduino, ESP32 ve STM32 tabanlı IoT projeleri geliştirme",
                 "⚡ Gömülü sistemler için C/C++ ile düşük seviyeli programlama",
@@ -216,7 +202,7 @@ const skills = {
         },
         {
             title: "Model Roketçilik ve Aviyonik Sistemler",
-            fileName: "RocketImg",
+            illustration: "Rocket",
             skills: [
                 "⚡ Aviyonik sistemler için PCB tasarımı ve üretimi",
                 "⚡ IMU sensörleri ile uçuş verisi toplama ve telemetri sistemleri",
@@ -245,10 +231,7 @@ const skills = {
                 },
                 {
                     skillName: "MATLAB",
-                    fontAwesomeClassname: "simple-icons:matlab",
-                    style: {
-                        color: "#e16737",
-                    },
+                    iconSrc: matlabLogo,
                 },
                 {
                     skillName: "Fusion 360",
@@ -275,7 +258,7 @@ const skills = {
         },
         {
             title: "Linux Yönetimi",
-            fileName: "DesignImg",
+            illustration: "Linux",
             skills: [
                 "⚡ Kullanıcı Deneyimini optimize etmek için uygulama işlevselliklerinin akışını oluşturma",
             ],
@@ -327,6 +310,13 @@ const degrees = {
 
 const certifications = {
     certifications: [{
+            title: "CCNA: Introduction to Networks",
+            subtitle: "Cisco Networking Academy · Balıkesir Üniversitesi · 1 Nisan 2026",
+            issuer: "Cisco",
+            certificate_link: process.env.PUBLIC_URL + "/CCNA-Introduction-to-Networks.pdf",
+            color_code: "#E2F3F9",
+        },
+        {
             title: "Teknofest Yüksek İrtifa Roket Yarışması",
             subtitle: "Roket Yarışması",
             logo_path: "teknofest_logo.png",
@@ -347,7 +337,9 @@ const certifications = {
 
 // Experience Page
 const experience = {
-
+    title: "Deneyim",
+    description: "Henüz yayımlanmış deneyim kaydı yok.",
+    sections: [],
 };
 
 // Projects Page
@@ -361,7 +353,7 @@ const projectsHeader = {
 const contactPageData = {
     contactSection: {
         title: "Benimle İletişime Geçin",
-        profile_image_path: "undraw_ios.svg",
+        email: contactEmail,
         description: "Neredeyse her sosyal medyada varım. Bana mesaj gönderebilirsiniz, 24 saat içinde cevap vereceğim. C#, Python, Qt, Arduino, STM32, Raspberry Pi, Model Roketçilik ve Aviyonik Sistemler konularında size yardımcı olabilirim.",
     },
     addressSection: {

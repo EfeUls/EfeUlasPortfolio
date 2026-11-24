@@ -16,17 +16,18 @@ const IconWrapper = styled.span `
 export default function socialMedia(props) {
     return ( <
         div className = "social-media-div" > {
-            socialMediaLinks.map((media, index) => {
+            socialMediaLinks.filter((media) => media.link).map((media) => {
                 return ( <
-                    a key = { `${media.fontAwesomeIcon}-${index}` }
+                    a key = { media.name }
                     href = { media.link }
+                    aria-label = { media.name }
                     className = { `icon-button` }
                     target = "_blank"
                     rel = "noopener noreferrer" >
                     <
                     IconWrapper {...media } {...props } >
                     <
-                    i className = { `fab ${media.fontAwesomeIcon}` } > < /i> < /
+                    i className = { `fab ${media.fontAwesomeIcon}` } aria-hidden="true" > < /i> < /
                     IconWrapper > <
                     /a>
                 );

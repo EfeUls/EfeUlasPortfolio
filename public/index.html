@@ -1,23 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/profile.svg" />
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/profile.svg" />
     <meta name="google-site-verification" content="imKfFFKLhXXdJebRZvylXa4pEOd9hWeXwWSiU_UDoTk" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="Efe'nin Portfolyosu" content="A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact." />
+    <meta name="description" content="Efe Ulaş’ın yazılım, gömülü sistemler ve aviyonik projelerini, eğitimini ve iletişim bilgilerini içeren kişisel portföyü." />
     <meta property="og:title" content="Efe ULAS Portfolio" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://efe-ulas-portfolio.vercel.app/" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/title.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/title.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/title.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/title.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0b1010">
 
     <!--Adsense Advertisement-->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -54,30 +47,14 @@
     </script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
-    <script src="./canvasjs.min.js"></script>
+    <script defer src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
 
     <title>Efe'nin Portfolyosu</title>
 </head>
 
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Portföyü görüntülemek için JavaScript’i etkinleştirin.</noscript>
     <div id="root"></div>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./serviceWorker.js')
-                    .then((reg) => {
-                        console.log("worker registered");
-                    })
-                    .catch((error) => {
-                        console.log("error generated", error);
-                    })
-            })
-        }
-    </script>
 </body>
 
 </html>

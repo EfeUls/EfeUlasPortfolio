@@ -17,9 +17,10 @@ export default function Button({ text, className, href, newTab, theme }) {
   return (
     <div className={className}>
       <a
-        class="main-button"
+        className="main-button"
         href={href}
-        target={newTab && "_blank"}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noopener noreferrer" : undefined}
         style={{
           color: theme.body,
           backgroundColor: theme.text,
